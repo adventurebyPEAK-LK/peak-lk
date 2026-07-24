@@ -1,0 +1,530 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+body{
+
+    font-family:'DM Sans',Arial,sans-serif;
+    background:#f4f3ee;
+    color:#17221c;
+
+}
+
+
+
+.trip-header{
+
+    min-height:420px;
+
+    background:
+    linear-gradient(
+        rgba(10,20,12,.65),
+        rgba(10,20,12,.65)
+    ),
+    url("peak-banner.jpg")
+    center/cover;
+
+
+    color:white;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+}
+
+
+
+
+
+.logo{
+
+    position:absolute;
+
+    top:35px;
+
+    left:50px;
+
+    color:#FFB000;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+}
+
+
+
+.logo span{
+
+    color:#FFB000;
+
+}
+
+
+
+
+.trip-header h1{
+
+    font-family:'Space Grotesk',Arial;
+
+    font-size:70px;
+
+    line-height:.9;
+
+    letter-spacing:-3px;
+
+    margin-top:60px;
+
+}
+
+
+
+.trip-header em{
+
+    color:#b5db5a;
+
+    font-style:normal;
+
+}
+
+
+
+.trip-header p{
+
+    margin-top:25px;
+
+    color:#ddd;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+.planner{
+
+    padding:80px 8vw;
+
+    text-align:center;
+
+}
+
+
+
+.planner h2{
+
+    font-size:45px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+.categories{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+.categories button{
+
+    border:none;
+
+    background:#17221c;
+
+    color:#b5db5a;
+
+    padding:18px 35px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+.categories button:hover{
+
+    transform:translateY(-5px);
+
+    background:#b5db5a;
+
+    color:#17221c;
+
+}
+
+
+
+
+
+
+.places{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+
+.place-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px #0002;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.place-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.place-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+
+
+
+
+.place-card h3{
+
+    padding:15px;
+
+    font-size:22px;
+
+}
+
+
+
+
+.place-card p{
+
+    padding:0 15px 20px;
+
+    color:#657067;
+
+}
+
+
+
+
+
+.trip-details{
+
+    margin:70px auto 30px;
+
+    max-width:500px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+}
+
+
+
+
+.trip-details label{
+
+    display:block;
+
+    text-align:left;
+
+    margin-top:15px;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+.trip-details input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:8px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+}
+
+
+
+
+
+.generate,
+.download{
+
+
+    margin-top:25px;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    background:#17221c;
+
+    color:#b5db5a;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+
+/* MAP */
+
+
+#map{
+
+    width:100%;
+
+    height:450px;
+
+    margin:50px auto;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px #0002;
+
+}
+
+
+
+
+
+
+
+.weather,
+.budget{
+
+
+    max-width:700px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px #0002;
+
+}
+
+
+
+
+
+.weather h2,
+.budget h2{
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+#weatherResult,
+#budgetResult{
+
+    font-size:18px;
+
+    color:#657067;
+
+}
+
+
+
+
+
+.result{
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+.download{
+
+    background:#FFB000;
+
+    color:#17221c;
+
+}
+
+
+
+
+.download:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+.places{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+
+
+.trip-header h1{
+
+    font-size:50px;
+
+}
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:550px){
+
+
+
+.logo{
+
+    left:20px;
+
+}
+
+
+
+
+.places{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+.planner{
+
+    padding:60px 5vw;
+
+}
+
+
+
+
+.trip-header h1{
+
+    font-size:40px;
+
+}
+
+
+
+
+#map{
+
+    height:300px;
+
+}
+
+
+}

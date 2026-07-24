@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Plan Your Trip | Peak.lk</title>
+
+
+<link rel="stylesheet" href="trip-style.css">
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+</head>
+
+
+
+<body>
+
+
+<header class="trip-header">
+
+
+<a href="index.html" class="logo">
+▲ PEAK<span>.LK</span>
+</a>
+
+
+
+<h1>
+PLAN YOUR<br>
+<em>ADVENTURE.</em>
+</h1>
+
+
+<p>
+Choose your adventure type and discover the best places in Sri Lanka.
+</p>
+
+
+</header>
+
+
+
+
+<section class="planner">
+
+
+
+<h2>
+Choose Adventure Type
+</h2>
+
+
+
+<div class="categories">
+
+
+<button onclick="showPlaces('camping')">
+🏕 Camping
+</button>
+
+
+<button onclick="showPlaces('hiking')">
+🥾 Hiking
+</button>
+
+
+<button onclick="showPlaces('wildlife')">
+🐘 Wildlife
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div id="places" class="places">
+
+
+<h3>
+Select a category to view places
+</h3>
+
+
+</div>
+
+
+
+
+
+
+<div class="trip-details">
+
+
+<h2>
+Your Trip Plan
+</h2>
+
+
+
+<label>
+Start Location
+</label>
+
+
+<input 
+id="startLocation"
+type="text"
+placeholder="Example: Colombo">
+
+
+
+
+
+<label>
+Number of Days
+</label>
+
+
+<input 
+id="days"
+type="number"
+placeholder="Example: 3">
+
+
+
+
+
+<label>
+Number of People
+</label>
+
+
+<input 
+id="people"
+type="number"
+placeholder="Example: 2">
+
+
+
+
+
+<button 
+class="generate"
+onclick="generatePlan()">
+
+Generate Trip Plan
+
+</button>
+
+
+
+</div>
+
+
+<input 
+id="days"
+type="number"
+placeholder="Example: 3">
+
+
+
+
+
+<label>
+Number of People
+</label>
+
+
+<input 
+id="people"
+type="number"
+placeholder="Example: 2">
+
+
+
+
+
+<button 
+class="generate"
+onclick="generatePlan()">
+
+Generate Trip Plan
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<div id="map"></div>
+
+
+
+
+
+<div class="weather">
+
+
+<h2>
+🌦 Weather
+</h2>
+
+
+<p id="weatherResult">
+Select destination
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="budget">
+
+
+<h2>
+💰 Trip Budget
+</h2>
+
+
+<p id="budgetResult">
+Generate your plan
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="result" class="result">
+
+
+</div>
+
+
+
+
+
+
+
+<button 
+class="download"
+onclick="downloadPDF()">
+
+Download PDF
+
+</button>
+
+
+
+
+
+</section>
+
+
+
+
+
+<script src="trip-script.js"></script>
+
+
+</body>
+
+
+</html>
