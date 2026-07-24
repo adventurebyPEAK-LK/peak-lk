@@ -131,3 +131,131 @@
     }
 
 }
+
+
+/* EXTRA MOBILE OPTIMIZATION */
+
+@media(max-width:550px){
+
+    .logo{
+        font-size:18px;
+    }
+
+    .hero{
+        height:100svh;
+        min-height:600px;
+        background-position:center;
+    }
+
+
+    .hero-content{
+        padding-top:60px;
+    }
+
+
+    .hero h1{
+        font-size:48px;
+        letter-spacing:-2px;
+        line-height:.95;
+    }
+
+
+    .hero-copy{
+        font-size:15px;
+        margin:20px 0 25px;
+    }
+
+
+    .hero-actions{
+        flex-direction:column;
+        width:100%;
+    }
+
+
+    .hero-actions .btn{
+        width:100%;
+        justify-content:center;
+    }
+
+
+    .stats{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+
+    .stats div{
+        border-left:0;
+        border-bottom:1px solid #435046;
+        padding-bottom:18px;
+    }
+
+
+    .stats div:last-child{
+        border-bottom:0;
+    }
+
+
+    .section-heading h2,
+    .about h2,
+    .contact h2{
+        font-size:42px;
+        letter-spacing:-2px;
+    }
+
+
+    .filters{
+        overflow-x:auto;
+        padding-bottom:10px;
+        white-space:nowrap;
+    }
+
+
+    .filter{
+        flex-shrink:0;
+    }
+
+
+    .gear-card{
+        border-radius:12px;
+    }
+
+
+    .gear-img{
+        height:250px;
+    }
+
+
+    .adventure-card{
+        height:380px;
+    }
+
+
+    .about-image{
+        min-height:300px;
+    }
+
+
+    .contact form{
+        width:100%;
+    }
+
+
+    footer{
+        text-align:center;
+    }
+
+}
+
+
+/* MOBILE HERO IMAGE */
+
+@media(max-width:550px){
+
+    .hero{
+        background-image:url('peak-mobile.jpg');
+        background-position:center;
+        background-size:cover;
+    }
+
+}
