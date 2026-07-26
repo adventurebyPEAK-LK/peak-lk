@@ -5,46 +5,71 @@ const gear = [
   category: "camping",
   type: "category",
 
-  // Category card image
-  image: "https://images.unsplash.com/photo-1784839288535-73e47992ca69?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  image: "https://images.unsplash.com/photo-1785079605765-e125ec0cdb3d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
   items: [
+
     {
       name: "4 Person Tent (Automatic / Manual)",
-      rentPrice: 1000,
-      buyPrice: 28000,
-      image: "https://images.unsplash.com/photo-1784840714982-02fa4737c6c5?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+      image: "https://images.unsplash.com/photo-1785079824476-b508183253fc?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+      rentPrice: {
+        manual: 1000,
+        automatic: 1200
+      },
+
+      buyPrice: {
+        manual: 15000,
+        automatic: 28000
+      }
     },
+
     {
       name: "5 Person Tent (Manual)",
+
+      image: "https://images.unsplash.com/photo-1785079911285-1aa3e1f18652?q=80&w=972&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
       rentPrice: 1300,
-      buyPrice: 32000,
-      image: "images/tents/5-person-tent.jpg"
+      buyPrice: 32000
     },
+
     {
       name: "6 Person Tent (Automatic)",
+
+      image: "https://images.unsplash.com/photo-1785079996863-d36275ee2128?q=80&w=992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
       rentPrice: 1500,
-      buyPrice: 38000,
-      image: "images/tents/6-person-tent.jpg"
+      buyPrice: 38000
     },
+
     {
       name: "Decathlon Quechua 2-3 Person",
+
+      image: "https://images.unsplash.com/photo-1785080075354-5b5ee6151023?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
       rentPrice: 1500,
-      buyPrice: 42900,
-      image: "images/tents/decathlon-2-3.jpg"
+      buyPrice: 42900
     },
+
     {
       name: "Decathlon Quechua 3-4 Person",
+
+      image: "images/tents/decathlon-3-4.jpg",
+
       rentPrice: 2400,
-      buyPrice: 73000,
-      image: "images/tents/decathlon-3-4.jpg"
+      buyPrice: 55000
     },
+
     {
       name: "Coleman 6-7 Person",
+
+      image: "images/tents/coleman-6-7.jpg",
+
       rentPrice: 1800,
-      buyPrice: 22300,
-      image: "images/tents/coleman-6-7.jpg"
+      buyPrice: 22300
     }
+
   ]
 },
 
@@ -330,79 +355,79 @@ renderGear();
 // OPEN CATEGORY ITEMS
 
 
+// OPEN CATEGORY ITEMS
+
 function openCategory(name){
 
+    let category = gear.find(x => x.name === name);
 
-let category=gear.find(x=>x.name===name);
+    grid.innerHTML = `
+    <button class="filter active" onclick="renderGear('all')">
+        ← Back
+    </button>
+    `;
 
+    grid.innerHTML += category.items.map(item => `
 
+    <article class="gear-card">
 
-grid.innerHTML=`
+        <div class="gear-img"
+        style="background-image:url('${item.image || category.image}')">
+        </div>
 
-<button class="filter active"
-onclick="renderGear('all')">
+        <div class="gear-info">
 
-← Back
+            <small>${name}</small>
 
-</button>
+            <h3>${item.name}</h3>
 
-`;
+            <div class="gear-bottom">
 
+                <div class="price">
 
+                ${
+                    typeof item.rentPrice === "object"
+                    ? `
+                    <div><b>Rent (Manual):</b> Rs. ${item.rentPrice.manual.toLocaleString()} <small>/ DAY</small></div>
+                    <div><b>Rent (Automatic):</b> Rs. ${item.rentPrice.automatic.toLocaleString()} <small>/ DAY</small></div>
+                    `
+                    : `
+                    <div><b>Rent:</b> Rs. ${item.rentPrice.toLocaleString()} <small>/ DAY</small></div>
+                    `
+                }
 
-grid.innerHTML += category.items.map(item=>`
+                ${
+                    typeof item.buyPrice === "object"
+                    ? `
+                    <div><b>Buy (Manual):</b> Rs. ${item.buyPrice.manual.toLocaleString()}</div>
+                    <div><b>Buy (Automatic):</b> Rs. ${item.buyPrice.automatic.toLocaleString()}</div>
+                    `
+                    : `
+                    <div><b>Buy:</b> Rs. ${item.buyPrice.toLocaleString()}</div>
+                    `
+                }
 
+                </div>
 
-<article class="gear-card">
+                <button class="rent-btn"
+                onclick="openBooking(
+                    '${item.name}',
+                    '${
+                        typeof item.rentPrice === "object"
+                        ? "Rs. " + item.rentPrice.manual
+                        : "Rs. " + item.rentPrice
+                    }'
+                )">
+                    ↗
+                </button>
 
+            </div>
 
-<div class="gear-img"
-style="background-image:url('${category.image}')">
-</div>
+        </div>
 
+    </article>
 
-
-<div class="gear-info">
-
-
-<small>
-${name}
-</small>
-
-
-<h3>
-${item.name}
-</h3>
-
-
-<div class="gear-bottom">
-
-
-<div class="price">
-    <div><b>Rent:</b> Rs. ${item.rentPrice.toLocaleString()} <small>/ DAY</small></div>
-    <div><b>Buy:</b> Rs. ${item.buyPrice.toLocaleString()}</div>
-</div>
-
-
-
-<button class="rent-btn"
-onclick="openBooking('${item.name}','Rs. ${item.rentPrice}')">
-
-↗
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-</article>
-
-
-`).join("");
+    `).join("");
 
 }
 
