@@ -295,12 +295,14 @@ items:[
 {
     name:"Power Bank (10000mAh)",
     image:"https://images.unsplash.com/photo-1785094222001-75735983966b?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rentPrice:500,
     buyPrice:4000
 },
 
 {
     name:"Power Bank (20000mAh)",
     image:"https://images.unsplash.com/photo-1785094222013-dafc6516f7b3?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rentPrice:850,
     buyPrice:7000
 },
 {
